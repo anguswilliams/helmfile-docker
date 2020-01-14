@@ -2,7 +2,7 @@ FROM alpine:3.10
 
 RUN apk add --no-cache ca-certificates git bash curl jq
 
-ARG HELM_VERSION=v3.0.0
+ARG HELM_VERSION=v3.0.2
 ARG HELM_LOCATION="https://get.helm.sh"
 ARG HELM_FILENAME="helm-${HELM_VERSION}-linux-amd64.tar.gz"
 ARG HELM_SHA256="10e1fdcca263062b1d7b2cb93a924be1ef3dd6c381263d8151dd1a20a3d8c0dc"
@@ -14,7 +14,7 @@ RUN wget ${HELM_LOCATION}/${HELM_FILENAME} && \
     rm ${HELM_FILENAME} && rm -r /linux-amd64
 
 # https://github.com/roboll/helmfile/releases/download/v0.94.1/helmfile_linux_amd64
-ARG HELMFILE_VERSION=v0.94.1
+ARG HELMFILE_VERSION=v0.98.2
 ARG HELMFILE_LOCATION="https://github.com/roboll/helmfile/releases/download"
 ARG HELMFILE_FILENAME="helmfile_linux_amd64"
 ARG HELMFILE_SHA256="eb058263f8279e1d0e9bb0c530db549615bb22fdb39c86c8696616c0e6b5beac"
