@@ -5,7 +5,7 @@ RUN apk add --no-cache ca-certificates git bash curl jq
 ARG HELM_VERSION=v3.0.3
 ARG HELM_LOCATION="https://get.helm.sh"
 ARG HELM_FILENAME="helm-${HELM_VERSION}-linux-amd64.tar.gz"
-ARG HELM_SHA256="10e1fdcca263062b1d7b2cb93a924be1ef3dd6c381263d8151dd1a20a3d8c0dc"
+ARG HELM_SHA256="fc75d62bafec2c3addc87b715ce2512820375ab812e6647dc724123b616586d6"
 RUN wget ${HELM_LOCATION}/${HELM_FILENAME} && \
     echo Verifying ${HELM_FILENAME}... && \
     sha256sum ${HELM_FILENAME} | grep -q "${HELM_SHA256}" && \
@@ -13,11 +13,11 @@ RUN wget ${HELM_LOCATION}/${HELM_FILENAME} && \
     tar zxvf ${HELM_FILENAME} && mv /linux-amd64/helm /usr/local/bin/ && \
     rm ${HELM_FILENAME} && rm -r /linux-amd64
 
-# https://github.com/roboll/helmfile/releases/download/v0.94.1/helmfile_linux_amd64
+# https://github.com/roboll/helmfile/releases/download/v0.99.1/helmfile_linux_amd64
 ARG HELMFILE_VERSION=v0.99.1
 ARG HELMFILE_LOCATION="https://github.com/roboll/helmfile/releases/download"
 ARG HELMFILE_FILENAME="helmfile_linux_amd64"
-ARG HELMFILE_SHA256="eb058263f8279e1d0e9bb0c530db549615bb22fdb39c86c8696616c0e6b5beac"
+ARG HELMFILE_SHA256="32c163e50a68a9268a78083eeb6c0e858e345e6a21fa17e4a49429670be07b36"
 RUN wget ${HELMFILE_LOCATION}/${HELMFILE_VERSION}/${HELMFILE_FILENAME} && \
     echo Verifying ${HELMFILE_FILENAME}... && \
     sha256sum ${HELMFILE_FILENAME} | grep -q "${HELMFILE_SHA256}" && \
